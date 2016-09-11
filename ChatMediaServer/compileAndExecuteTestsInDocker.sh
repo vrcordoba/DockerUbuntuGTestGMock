@@ -30,4 +30,6 @@ do
    esac
 done
 
-sudo docker run -v $PWD:/tmp/project -it $CONTAINER_NAME /bin/bash -c "cd /tmp/project && cmake . && make && ./$TEST_SUITE > results.txt && rm -rf CMakeCache.txt CMakeFiles cmake_install.cmake Makefile $TEST_SUITE && exit"
+sudo docker run -v $PWD:/tmp/project $CONTAINER_NAME /bin/bash -c "cd /tmp/project \
+   && cmake . && make && ./$TEST_SUITE > results.txt && rm -rf CMakeCache.txt \
+   CMakeFiles cmake_install.cmake Makefile $TEST_SUITE"
